@@ -171,10 +171,10 @@ def recommend_next_letter(solutions, attempted, weights=None, phrase_set = {}):
                 if s in phrase_set:
                     counts[ch] += int(w) * 10
 
-    #add 1 to each letter as long as they are a possible choice
+    #add -1 to each letter if they are not in counts and are possible
     for ch in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-        if ch not in attempted:
-            counts[ch] += 1
+        if ch not in attempted and ch not in counts:
+            counts[ch] += -1
 
     return counts.most_common()
 
@@ -183,8 +183,8 @@ def recommend_next_letter(solutions, attempted, weights=None, phrase_set = {}):
 # -------------------------------------------------------------
 
 def wof_solver(pattern, attempted_letters=None,
-               words_path="data/words.txt",
-               phrases_path="data/phrases.txt"):
+               words_path="/home/li126/CanIBuyanAI/Andy/data/words.txt",
+               phrases_path="/home/li126/CanIBuyanAI/Andy/data/phrases.txt"):
     """
     Main solver.
     Returns dict:

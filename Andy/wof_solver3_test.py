@@ -22,7 +22,7 @@ def test(pattern, attempted=None):
 
 if __name__ == "__main__":
     # Pattern from your example
-    test("TH_ QU_CK BRO_N _OX")
+    test("___ ___")
 
     # Test automatic attempted-letter inference
     test("C_MP_T_R PR_GR_MM_N_")
